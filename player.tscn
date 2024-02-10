@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1i7gho13et11"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ndx6b"]
+[ext_resource type="Texture2D" uid="uid://blniug7gtti1o" path="res://assets/pool-man.png" id="2_od1or"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyiur"]
+atlas = ExtResource("2_od1or")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ida4f"]
+atlas = ExtResource("2_od1or")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm1pr"]
+atlas = ExtResource("2_od1or")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykrti"]
+atlas = ExtResource("2_od1or")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tva3d"]
+atlas = ExtResource("2_od1or")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjjui"]
+animations = [{
+"frames": [{
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_fyiur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ida4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm1pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykrti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tva3d")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0n4an"]
+size = Vector2(10, 28)
+
+[node name="Player" type="Area2D"]
+position = Vector2(26, 22)
+script = ExtResource("1_ndx6b")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jjjui")
+animation = &"walk"
+frame = 4
+frame_progress = 0.737921
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_0n4an")
