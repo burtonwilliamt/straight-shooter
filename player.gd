@@ -47,9 +47,9 @@ func _process_gun():
 	var mouse_pos = get_viewport().get_mouse_position()
 	$GunRotation.look_at(mouse_pos)
 	if mouse_pos.x > $GunRotation.global_position.x:
-		$GunRotation/Gun.flip_v = false
+		$GunRotation.flip_v = false
 	else:
-		$GunRotation/Gun.flip_v = true
+		$GunRotation.flip_v = true
 
 	if Input.is_action_just_pressed("shoot"):
 		$GunRotation/AudioStreamPlayer2D.play()
