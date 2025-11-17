@@ -1,46 +1,91 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhihun1f6h5j3"]
+[gd_scene load_steps=4 format=3 uid="uid://bhihun1f6h5j3"]
 
-[ext_resource type="Script" path="res://multiplayer_test.gd" id="1_pmoax"]
+[ext_resource type="Script" uid="uid://bg6586htynfq8" path="res://multiplayer_test.gd" id="1_pmoax"]
 [ext_resource type="PackedScene" uid="uid://b1i7gho13et11" path="res://player.tscn" id="2_fk5ul"]
+[ext_resource type="Theme" uid="uid://bl7ruhi3880qb" path="res://menu.tres" id="3_q3bjm"]
 
 [node name="Multiplayer_Test" type="Node2D"]
 script = ExtResource("1_pmoax")
 player_scene = ExtResource("2_fk5ul")
 
-[node name="Host" type="Button" parent="."]
-offset_left = 98.0
-offset_top = 76.0
-offset_right = 142.0
-offset_bottom = 107.0
-text = "Host"
-
-[node name="Join" type="Button" parent="."]
-offset_left = 197.0
-offset_top = 77.0
-offset_right = 235.0
-offset_bottom = 108.0
-text = "Join"
+[node name="PlayerSpawn" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(958.3844, 846.3076)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://player.tscn")
+_spawnable_scenes = PackedStringArray("uid://b1i7gho13et11")
 spawn_path = NodePath("..")
 
 [node name="BulletContainer" type="Node2D" parent="."]
 
-[node name="IP" type="TextEdit" parent="."]
-offset_left = 196.0
-offset_top = 29.0
-offset_right = 304.0
-offset_bottom = 68.0
+[node name="Menu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 860.0
+offset_top = 440.0
+offset_right = 1060.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+theme = ExtResource("3_q3bjm")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Straight Shooter"
+horizontal_alignment = 1
+
+[node name="BoxContainer2" type="BoxContainer" parent="Menu"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="IP" type="LineEdit" parent="Menu/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 text = "127.0.0.1"
 
-[node name="Port" type="TextEdit" parent="."]
-offset_left = 94.0
-offset_top = 32.0
-offset_right = 147.0
-offset_bottom = 67.0
-text = "4242"
-placeholder_text = "Port"
+[node name="Port" type="SpinBox" parent="Menu/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 65535.0
+value = 4242.0
+alignment = 2
+select_all_on_focus = true
 
-[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
+[node name="BoxContainer" type="BoxContainer" parent="Menu"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Menu/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Host" type="Button" parent="Menu/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="Menu/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="BoxContainer2" type="BoxContainer" parent="Menu/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Menu/HBoxContainer2/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Menu/HBoxContainer2/VBoxContainer/Join" to="." method="_on_join_pressed"]

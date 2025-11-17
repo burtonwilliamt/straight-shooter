@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://b1i7gho13et11"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_ndx6b"]
+[ext_resource type="Script" uid="uid://ctjeyhmxywnf5" path="res://player.gd" id="1_ndx6b"]
 [ext_resource type="Texture2D" uid="uid://blniug7gtti1o" path="res://assets/pool-man.png" id="2_od1or"]
 [ext_resource type="Texture2D" uid="uid://wqcxvobj1ats" path="res://assets/revolver.png" id="3_iyua4"]
 [ext_resource type="AudioStream" uid="uid://ihjq4klodfnw" path="res://assets/sounds/9mm-pistol-shot.wav" id="4_yvqig"]
@@ -69,8 +69,9 @@ properties/4/spawn = true
 properties/4/replication_mode = 1
 
 [node name="Player" type="Area2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_ndx6b")
-speed = 200
+speed = 400
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

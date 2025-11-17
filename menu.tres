@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://bl7ruhi3880qb"]
+
+[resource]
+default_font_size = 12
+Button/constants/h_separation = 0
+Button/constants/line_spacing = 0
+Button/font_sizes/font_size = 12
+LineEdit/font_sizes/font_size = 10
