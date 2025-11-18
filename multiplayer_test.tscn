@@ -12,7 +12,8 @@ player_scene = ExtResource("2_fk5ul")
 unique_name_in_owner = true
 position = Vector2(958.3844, 846.3076)
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
+unique_name_in_owner = true
 _spawnable_scenes = PackedStringArray("uid://b1i7gho13et11")
 spawn_path = NodePath("..")
 
