@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhihun1f6h5j3"]
+[gd_scene load_steps=5 format=3 uid="uid://bhihun1f6h5j3"]
 
 [ext_resource type="Script" uid="uid://bg6586htynfq8" path="res://multiplayer_test.gd" id="1_pmoax"]
 [ext_resource type="PackedScene" uid="uid://b1i7gho13et11" path="res://player.tscn" id="2_fk5ul"]
+[ext_resource type="PackedScene" uid="uid://8ju8fp86r8dd" path="res://table.tscn" id="3_pg252"]
 [ext_resource type="Theme" uid="uid://bl7ruhi3880qb" path="res://menu.tres" id="3_q3bjm"]
 
 [node name="Multiplayer_Test" type="Node2D"]
 script = ExtResource("1_pmoax")
 player_scene = ExtResource("2_fk5ul")
+
+[node name="Table" parent="." instance=ExtResource("3_pg252")]
+position = Vector2(958.41455, 520.839)
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 unique_name_in_owner = true

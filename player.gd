@@ -46,10 +46,11 @@ func _process_gun():
 	$GunRotation/Gun.visible = true
 	var mouse_pos = get_viewport().get_mouse_position()
 	$GunRotation.look_at(mouse_pos)
+	# If the gun is pointed the other way, flip vertically
 	if mouse_pos.x > $GunRotation.global_position.x:
-		$GunRotation/Gun.flip_v = false
+		$GunRotation.scale = Vector2(1,1)
 	else:
-		$GunRotation/Gun.flip_v = true
+		$GunRotation.scale = Vector2(1,-1)
 
 	if Input.is_action_just_pressed("shoot"):
 		$GunRotation/AudioStreamPlayer2D.play()

@@ -98,4 +98,5 @@ position = Vector2(18, -3)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="GunRotation"]
 stream = ExtResource("4_yvqig")
+volume_db = -30.0
 max_polyphony = 3
